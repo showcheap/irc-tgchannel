@@ -1,19 +1,21 @@
 const irc = require('irc')
 const Telegraf = require('telegraf')
+const express = require('express')
 
+const app = express()
 const telebot = new Telegraf(process.env.TELEGRAM_TOKEN)
 
 
 const client = new irc.Client('irc.freenode.net','tgchannel', {
-    channels: ['#bgli'],
-    debug: true,
+    channels: ['#ubuntu-indonesia','#bgli','#blankon'],
+    debug: false,
     password: process.env.IRC_PASSWORD
 })
 
 client.addListener('message', (from, to, message) => {
     console.log(`${from} => ${to} : ${message}`)
     
-    if( from == '#ubuntu-indonesia'){
+    if( to == "#ubuntu-indonesia"){
     
         telebot.telegram.sendMessage(
             '@ubuntuindonesia_arsip',
@@ -23,7 +25,7 @@ client.addListener('message', (from, to, message) => {
             }
         )
     
-    }else if( from == "#blankon" ){
+    }else if( to == "#blankon" ){
         console.log('TODO: Send message to blankon archive channel')
     }
 
@@ -37,3 +39,9 @@ client.addListener('error', (message) => {
     console.log(`error: `)
     console.log(message)
 })
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+app.listen(3000)
