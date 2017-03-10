@@ -1,0 +1,28 @@
+{
+  "name": "irc-tg",
+  "version": "1.0.0",
+  "description": "IRC to TG Channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/showcheap/irc-tgchannel.git"
+  },
+  "keywords": [
+    "telegram",
+    "irc",
+    "channel"
+  ],
+  "author": "Sucipto <chip@pringstudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/showcheap/irc-tgchannel/issues"
+  },
+  "homepage": "https://github.com/showcheap/irc-tgchannel#readme",
+  "dependencies": {
+    "irc": "^0.5.2",
+    "telegraf": "^3.6.7"
+  }
+}
